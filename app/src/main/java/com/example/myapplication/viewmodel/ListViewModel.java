@@ -2,6 +2,7 @@ package com.example.myapplication.viewmodel;
 
 import android.app.Application;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.myapplication.model.Movie;
 import com.example.myapplication.model.MovieDao;
 import com.example.myapplication.model.MovieDatabase;
+import com.example.myapplication.model.MovieResponse;
 import com.example.myapplication.network.MovieApiService;
 import com.example.myapplication.util.NotificationsHelper;
 import com.example.myapplication.util.SharedPreferencesHelper;
@@ -82,11 +84,12 @@ public class ListViewModel extends AndroidViewModel {
                 movieService.getPopularMovie()
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(new DisposableSingleObserver<List<Movie>>() {
+                        .subscribeWith(new DisposableSingleObserver<MovieResponse>() {
                             @Override
-                            public void onSuccess(List<Movie> movies) {
+                            public void onSuccess(MovieResponse movies) {
                                 insertTask = new InsertMovieTask();
-                                insertTask.execute(movies);
+                                Log.d("MovieApiService",  String.valueOf(movies.getPage()));
+                                insertTask.execute(movies.getResults());
                                 Toast.makeText(getApplication(), "Movie retrieved from endpoint", Toast.LENGTH_SHORT).show();
                                 NotificationsHelper.getInstance(getApplication()).createNotification();
                             }

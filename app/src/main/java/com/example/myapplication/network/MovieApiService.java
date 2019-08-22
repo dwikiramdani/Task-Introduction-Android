@@ -1,6 +1,9 @@
 package com.example.myapplication.network;
 
+import android.util.Log;
+
 import com.example.myapplication.model.Movie;
+import com.example.myapplication.model.MovieResponse;
 
 import java.util.List;
 
@@ -22,7 +25,9 @@ public class MovieApiService {
                 .create(MovieApi.class);
     }
 
-    public Single<List<Movie>> getPopularMovie(){
+    public Single<MovieResponse> getPopularMovie(){
+        Log.d("MovieApiService", "Test");
+
         return api.getPopularMovies();
     }
 

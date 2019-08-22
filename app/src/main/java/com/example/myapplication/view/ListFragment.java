@@ -84,20 +84,20 @@ public class ListFragment extends Fragment {
 
     private void observeViewModel(){
         viewModel.movie.observe(this, movies -> {
-            if(movies != null && movies instanceof List) {
+            if(movies != null) {
                 movieList.setVisibility(View.VISIBLE);
                 movieListAdapter.updateMoviesList(movies);
             }
         });
 
         viewModel.movieLoadError.observe(this, isError -> {
-            if(isError != null && isError instanceof Boolean) {
+            if(isError != null) {
                 listError.setVisibility(isError ? View.VISIBLE : View.GONE);
             }
         });
 
         viewModel.loading.observe(this, isLoading -> {
-            if(isLoading != null && isLoading instanceof Boolean) {
+            if(isLoading != null) {
                 loadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE);
                 if(isLoading) {
                     listError.setVisibility(View.GONE);
