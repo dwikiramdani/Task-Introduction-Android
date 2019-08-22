@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="movie"
+            type="com.example.myapplication.model.Movie" />
+
+        <variable
+            name="palette"
+            type="com.example.myapplication.model.MoviePallete" />
+    </data>
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.DetailFragment">
+
+        <ImageView
+            android:id="@+id/movieImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:minHeight="200dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_hdr"/>
+
+        <TextView
+            android:id="@+id/movieTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Title"
+            android:layout_margin="4dp"
+            android:text="@{movie.title}"
+            android:layout_below="@id/movieImage"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/movieOverview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text"
+            android:layout_margin="4dp"
+            android:text="@{movie.overview}"
+            android:layout_below="@id/movieTitle"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/movieReleaseDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text"
+            android:layout_margin="4dp"
+            android:text="@{movie.releaseDate}"
+            android:layout_below="@id/movieOverview"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/movieSite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text"
+            android:layout_margin="4dp"
+            android:text="Movie Cast"
+            android:layout_below="@id/movieReleaseDate"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+</layout>
