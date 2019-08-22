@@ -9,6 +9,6 @@ import io.reactivex.Single;
 import retrofit2.http.GET;
 
 public interface MovieApi {
-    @GET("3/movie/upcoming")
+    @GET("DevTides/DogsApi/master/dogs.json")
     Single<List<Movie>> getPopularMovies();
 }

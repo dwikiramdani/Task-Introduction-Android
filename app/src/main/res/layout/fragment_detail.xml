@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             style="@style/Title"
             android:layout_margin="4dp"
-            android:text="@{movie.title}"
+            android:text="@{movie.dogBreed}"
             android:layout_below="@id/movieImage"
             android:layout_centerHorizontal="true"/>
 
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             style="@style/Text"
             android:layout_margin="4dp"
-            android:text="@{movie.overview}"
+            android:text="@{movie.breedGroup}"
             android:layout_below="@id/movieTitle"
             android:layout_centerHorizontal="true"/>
 
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             style="@style/Text"
             android:layout_margin="4dp"
-            android:text="@{movie.releaseDate}"
+            android:text="@{movie.bredFor}"
             android:layout_below="@id/movieOverview"
             android:layout_centerHorizontal="true"/>
 

@@ -10,7 +10,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MovieApiService {
-    private static final String BASE_URL = "https://api.themoviedb.org/";
+    private static final String BASE_URL = "https://raw.githubusercontent.com/";
     private MovieApi api;
 
     public MovieApiService(){

@@ -91,8 +91,8 @@ public class DetailFragment extends Fragment {
             if(movie != null && movie instanceof Movie && getContext() != null) {
                 currentMovie = movie;
                 binding.setMovie(movie);
-                if(currentMovie.thumbPath != null) {
-                    setupBackgroundColor(movie.thumbPath);
+                if(currentMovie.imageUrl != null) {
+                    setupBackgroundColor(movie.imageUrl);
                 }
             }
         });
@@ -140,8 +140,8 @@ public class DetailFragment extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Check out this Movie");
-                intent.putExtra(Intent.EXTRA_TEXT, currentMovie.title + " Summary " + currentMovie.overview);
-                intent.putExtra(Intent.EXTRA_STREAM, currentMovie.thumbPath);
+                intent.putExtra(Intent.EXTRA_TEXT, currentMovie.dogBreed + " Summary " + currentMovie.breedGroup);
+                intent.putExtra(Intent.EXTRA_STREAM, currentMovie.imageUrl);
                 startActivity(Intent.createChooser(intent, "Share with"));
                 break;
             }
@@ -152,7 +152,7 @@ public class DetailFragment extends Fragment {
 
     public void onPermissionResult(Boolean permissionGranted) {
         if(isAdded() && sendSmsStarted && permissionGranted) {
-            SmsInfo smsInfo = new SmsInfo("", currentMovie.title + " Summary " + currentMovie.overview, currentMovie.thumbPath);
+            SmsInfo smsInfo = new SmsInfo("", currentMovie.dogBreed + " Summary " + currentMovie.breedGroup, currentMovie.imageUrl);
 
             SendSmsDialogBinding dialogBinding = DataBindingUtil.inflate(
                     LayoutInflater.from(getContext()),
